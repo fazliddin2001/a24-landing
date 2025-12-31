@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from original index.html */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+.break-words {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+.carousel-slide {
+    flex-shrink: 0;
+    width: 20%;
+    padding: 0 2rem;
+    /* Responsive tweaks from original style block */
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#hero-text-content > div {
+    display: none;
+}
+#hero-select-default:checked ~ #hero-text-content #hero-text-default,
+#hero-select-business:checked ~ #hero-text-content #hero-text-business,
+#hero-select-education:checked ~ #hero-text-content #hero-text-education,
+#hero-select-medicine:checked ~ #hero-text-content #hero-text-medicine,
+#hero-select-agriculture:checked ~ #hero-text-content #hero-text-agriculture {
+    display: block;
+}
+
+/* --- Safety box-sizing so padding doesn't create overflow --- */
+html, body, #app {
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+/* --- Prevent long words from overflowing --- */
+.break-words, .break-words * {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* --- Ensure images always fit their container --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Make layout containers truly responsive on tiny screens --- */
+.layout-container,
+.layout-content-container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Carousel mobile tweaks */
+@media (max-width: 640px) {
+  .carousel-slide {
+    min-width: 100px;
+    padding: 0 0.5rem;
+  }
+  .carousel-slide img { height: 32px; }
+  .partners-slide-text { display: none; }
+}
+
+.partners-slide-text { display: inline; }
+
+.size-24 { width: 48px; height: 48px; }
+.size-32 { width: 64px; height: 64px; }
+
+h1, h2, p { max-width: 100%; }
+
+body { overflow-x: hidden; }
+
+.animate-scroll {
+    animation: scroll 18s linear infinite;
+}

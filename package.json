@@ -1,0 +1,22 @@
+{
+  "name": "a24-node",
+  "version": "1.0.0",
+  "description": "A24 Landing Page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --minify",
+    "build:static": "node build-static.js",
+    "build:prod": "npm run build:css && npm run build:static"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}
